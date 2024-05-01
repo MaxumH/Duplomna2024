@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>List of people</title>
+</head>
+<body>
+<form action="#" th:action="@{/tgaz/search}" method="GET">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <button type="submit">Search</button>
+
+<div th:each="person : ${people}">
+  <a th:href ="@{/tgaz/{id}(id = ${person.getId()})}"
+
+     th:text="${person.getName() + ' ' + person.getPosition()+ ' ' +person.getExperience()+ ' ' +person.getEmail()+ ' ' +person.getDepartment()+' ' +person.getPassword()}"></a>
+</div>
+</br>
+<a href="/tgaz/new">Create new person</a>
+<a href="/admin">Back</a>
+</form>
+</body>
+</html>

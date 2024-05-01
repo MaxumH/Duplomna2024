@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit </title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/tgaz/{id}(id=${person.getId()})}" th:object="${person}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="position">Enter position: </label>
+    <input type="text" th:field="*{position}" id="position"/>
+    <div style="color:red" th:if="${#fields.hasErrors('position')}" th:errors="*{position}">Position Error</div>
+    <br/>
+    <label for="experience">Enter experience: </label>
+    <input type="number" th:field="*{experience}" id="experience"/>
+    <div style="color:red" th:if="${#fields.hasErrors('experience')}" th:errors="*{experience}">Position Error</div>
+    <br/>
+    <label for="email">Enter email: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <br/>
+    <label for="department">Enter department: </label>
+    <input type="text" th:field="*{department}" id="department" list="departmentlist" required>
+    <datalist id="departmentlist">
+        <option value="Main">
+        <option value="Industrial">
+        <option value="Technical">
+        <option value="Finance">
+
+    </datalist>
+    <div style="color:red" th:if="${#fields.hasErrors('department')}" th:errors="*{department}">Department Error</div>
+    <br/>
+    <br/>
+    <label for="password">Enter password: </label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>
+</body>
+</html>

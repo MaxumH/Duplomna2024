@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenPAge</title>
+</head>
+<body>
+      Hola Amigo
+      <form th:method="GET" th:action="@{/tgaz/index}">
+          <button type="submit">Employee</button>
+      </form>
+      <form th:method="GET" th:action="@{/tgaz/department/Main}">
+          <button type="submit">Main Department</button>
+      </form>
+      <form th:method="GET" th:action="@{/tgaz/department/Finance}">
+          <button type="submit">Finance Department</button>
+      </form>
+      <form th:method="GET" th:action="@{/tgaz/department/Technical}">
+          <button type="submit">Technical Department</button>
+      </form>
+      <form th:method="GET" th:action="@{/tgaz/department/Industrial}">
+          <button type="submit">Industrial Department</button>
+      </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Results:</title>
+</head>
+<body>
+<div th:if="${body}">
+    <h2>Search Results:</h2>
+    <div th:each="person : ${body}">
+        <a th:href ="@{/tgaz/{id}(id = ${person.getId()})}"
+        <p th:text="${person.name + ' ' + person.position + ' ' + person.experience + ' ' + person.email + ' ' + person.department + ' ' + person.password}"></p>
+    </div>
+</div>
+<div th:if="${body == null}">
+    <p>No results found</p>
+</div>
+</body>
+</html>
