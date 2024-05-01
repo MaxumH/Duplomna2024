@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Human</title>
+</head>
+<body>
+<div>
+<p th:text ="${person.getName()}">Value</p>
+<p th:text ="${person.getPosition()}">Value</p>
+<p th:text ="${person.getExperience()}">Value</p>
+<p th:text ="${person.getEmail()}">Value</p>
+<p th:text ="${person.getDepartment()}">Value</p>
+<p th:text ="${person.getId()}">Value</p>
+</div>
+
+<a th:href="@{/tgaz/{id}/edit(id=${person.getId()})}">Edit</a>
+<a th:href="@{/tgaz/{id}/delete(id=${person.getId()})}">Delete</a>
+
+<form th:method="DELETE" th:action="@{/tgaz/{id}/delete(id=${person.getId()})}"></form>
+<input type = "submit" value="Delete"/>
+</body>
+</html>
