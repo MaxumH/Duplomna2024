@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task</title>
+</head>
+<body>
+<h1>Task:</h1>
+<div th:if="${error}">
+  <p th:text="${error}"></p>
+</div>
+<div th:if="${lines}">
+  <ul>
+    <li th:each="line : ${lines}" th:text="${line}"></li>
+  </ul>
+</div>
+</body>
+</html>

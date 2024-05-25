@@ -9,7 +9,7 @@
     <h2>Search Results:</h2>
     <div th:each="person : ${body}">
         <a th:href ="@{/tgaz/{id}(id = ${person.getId()})}"
-        <p th:text="${person.name + ' ' + person.position + ' ' + person.experience + ' ' + person.email + ' ' + person.department + ' ' + person.password}"></p>
+        <p th:text="${person.name + ' ' + person.position + ' ' + person.experience + ' ' + person.email + ' ' + person.department }"></p>
     </div>
 </div>
 <div th:if="${body == null}">

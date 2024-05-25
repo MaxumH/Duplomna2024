@@ -3,6 +3,8 @@ package mvc.controllers;
 import mvc.dao.PersonDAO;
 import mvc.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,10 +18,12 @@ import java.util.List;
 @RequestMapping("/tgaz")
 public class ControllPage {
     private final  PersonDAO personDAO;
+    private final PasswordEncoder passwordEncoder;
    @Autowired
-    public ControllPage(PersonDAO personDAO) {
+    public ControllPage(PersonDAO personDAO, PasswordEncoder passwordEncoder) {
         this.personDAO = personDAO;
-    }
+       this.passwordEncoder = new BCryptPasswordEncoder();
+   }
     @GetMapping()
     public String openPage()
     {
@@ -66,12 +70,16 @@ public class ControllPage {
 
     @PostMapping()
     public String create(@ModelAttribute("person") @Valid Person person,BindingResult bindingResult) throws SQLException {
+
       if(bindingResult.hasErrors()) {
       return "/new";
       }
+        String hashedPassword = passwordEncoder.encode(person.getPassword());
+        person.setPassword(hashedPassword);
         personDAO.save(person);
         return "redirect:/tgaz/index";
     }
+
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable("id") int id,Model model)
     {

@@ -26,9 +26,7 @@ public class PersonDAO {
 
         public void save (Person person) {
             jdbcTemplate.update("INSERT INTO Person VALUES(?,?,?,?,?,?,?)", person.getId(),person.getName(),person.getPosition(),person.getExperience(),person.getEmail(),person.getDepartment(),person.getPassword());
-        }
-
-
+      }
         public Person show ( int id){
             // Тут треба добавити new Object[]{id} це масив через який ми передаємо параметри ? в нашому випадку тільки id
             return jdbcTemplate.query("SELECT * FROM Person WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Person.class))
@@ -51,8 +49,8 @@ public class PersonDAO {
 
         // тут нам не треба використовувати масив щоб передати параметри тому що вони так придумали метод (alishev так і сказав)
         public void update ( int id, Person updateperson) {
-            jdbcTemplate.update("UPDATE Person SET name=?, position=?,experience=?,email=?,department=?,password=? WHERE id=?",
-                    updateperson.getName(), updateperson.getPosition(), updateperson.getExperience(), updateperson.getEmail(), updateperson.getDepartment(),updateperson.getPassword(), id);
+            jdbcTemplate.update("UPDATE Person SET name=?, position=?,experience=?,email=?,department=? WHERE id=?",
+                    updateperson.getName(), updateperson.getPosition(), updateperson.getExperience(), updateperson.getEmail(), updateperson.getDepartment(), id);
         }
 
 

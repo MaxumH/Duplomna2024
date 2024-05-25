@@ -31,20 +31,16 @@
     <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
     <br/>
     <label for="department">Enter department: </label>
-    <input type="text" th:field="*{department}" id="department" list="departmentlist" required>
-    <datalist id="departmentlist">
-        <option value="Main">
-        <option value="Industrial">
-        <option value="Technical">
-        <option value="Finance">
-
-    </datalist>
+    <select th:field="*{department}" id="department" required>
+        <option value="" disabled selected>Select your department</option>
+        <option value="Main">Main</option>
+        <option value="Industrial">Industrial</option>
+        <option value="Technical">Technical</option>
+        <option value="Finance">Finance</option>
+    </select>
     <div style="color:red" th:if="${#fields.hasErrors('department')}" th:errors="*{department}">Department Error</div>
     <br/>
-    <br/>
-    <label for="password">Enter password: </label>
-    <input type="text" th:field="*{password}" id="password"/>
-    <br/>
+
     <input type="submit" value="Update!"/>
 </form>
 

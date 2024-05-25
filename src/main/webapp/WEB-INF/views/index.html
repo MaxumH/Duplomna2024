@@ -15,11 +15,15 @@
 <div th:each="person : ${people}">
   <a th:href ="@{/tgaz/{id}(id = ${person.getId()})}"
 
-     th:text="${person.getName() + ' ' + person.getPosition()+ ' ' +person.getExperience()+ ' ' +person.getEmail()+ ' ' +person.getDepartment()+' ' +person.getPassword()}"></a>
+     th:text="${person.getName() + ' ' + person.getPosition()+ ' ' +person.getExperience()+ ' ' +person.getEmail()+ ' ' +person.getDepartment()}"></a>
 </div>
 </br>
+</form>
+
 <a href="/tgaz/new">Create new person</a>
 <a href="/admin">Back</a>
+
+
 </form>
 </body>
 </html>

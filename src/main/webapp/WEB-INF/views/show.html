@@ -14,10 +14,9 @@
 <p th:text ="${person.getId()}">Value</p>
 </div>
 
-
-<a th:href="@{/tgaz/{id}/edit(id=${person.getId()})}">Edit</a>
-<a th:href="@{/tgaz/{id}/delete(id=${person.getId()})}">Delete</a>
-
+<form th:method="GET" th:action="@{/tgaz/{id}/edit(id=${person.getId()})}">
+    <input type = "submit" value="Edit"/>
+</form>
 <form th:method="GET" th:action="@{/tgaz/{id}/delete(id=${person.getId()})}">
 <input type = "submit" value="Delete"/>
 </form>

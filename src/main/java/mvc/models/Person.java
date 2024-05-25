@@ -1,10 +1,18 @@
 package mvc.models;
 
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import mvc.services.FileService;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class Person {
     private int id;
@@ -87,9 +95,9 @@ public class Person {
     }
 
     public void setPassword(String password) {
-       // BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-      //  String hashedPassword = encoder.encode(password);
 
         this.password = password;
     }
+    private FileService fileService;
+
 }

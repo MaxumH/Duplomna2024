@@ -8,7 +8,7 @@
 <div th:each="person : ${department}">
   <a th:href ="@{/tgaz/{id}(id = ${person.getId()})}"
 
-   th:text="${person.getName() + ' ' + person.getPosition()+ ' ' +person.getExperience()+ ' ' +person.getEmail()+ ' ' +person.getDepartment()+' ' +person.getPassword()}"></a>
+   th:text="${person.getName() + ' ' + person.getPosition()+ ' ' +person.getExperience()+ ' ' +person.getEmail()+ ' ' +person.getDepartment()}"></a>
 </div>
 
 <form th:method="GET" th:action="@{/tgaz/{id}/delete(id=${person.getId()})}">
